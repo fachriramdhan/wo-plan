@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DIJ Layout - PT Mattel West Plant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#c6c6cd",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#fcdeb5",
+                    "inverse-on-surface": "#f3f0f2",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#bec6e0",
+                    "surface": "#fcf8fa",
+                    "secondary": "#505f76",
+                    "surface-bright": "#fcf8fa",
+                    "on-tertiary-container": "#98805d",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#271901",
+                    "on-secondary-fixed": "#0b1c30",
+                    "surface-container-high": "#eae7e9",
+                    "surface-container-low": "#f6f3f5",
+                    "on-surface": "#1b1b1d",
+                    "surface-container-highest": "#e4e2e4",
+                    "on-primary-container": "#7c839b",
+                    "primary-container": "#131b2e",
+                    "surface-dim": "#dcd9db",
+                    "tertiary": "#000000",
+                    "inverse-surface": "#303032",
+                    "secondary-container": "#d0e1fb",
+                    "inverse-primary": "#bec6e0",
+                    "on-background": "#1b1b1d",
+                    "primary": "#000000",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#e4e2e4",
+                    "surface-tint": "#565e74",
+                    "surface-container": "#f0edef",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed": "#131b2e",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "outline": "#76777d",
+                    "on-secondary-container": "#54647a",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#271901",
+                    "primary-fixed": "#dae2fd",
+                    "background": "#fcf8fa",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "on-surface-variant": "#45464d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "1rem",
+                    "gutter": "1rem",
+                    "container-max": "1440px",
+                    "margin-desktop": "2rem",
+                    "touch-target-min": "44px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "data-mono": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "headline-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "display-lg": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "data-mono": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .status-indicator {
+            width: 4px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .machine-card {
+            transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+        }
+        .machine-card:active {
+            transform: scale(0.98);
+        }
+        body {
+            background-color: #f8fafc; /* Slate-50 background per brand guidance */
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-surface dark:bg-surface-dim border-r border-outline-variant dark:border-outline flex flex-col py-margin-desktop">
+<div class="px-6 mb-8">
+<h1 class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary-fixed-dim">PT Mattel</h1>
+<p class="text-label-caps font-label-caps text-on-surface-variant">West Plant</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">DIJ Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 border-l-4 border-primary dark:border-primary-fixed bg-secondary-container dark:bg-primary-container text-primary dark:text-on-primary-fixed font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-body-md text-body-md">DIJ Layout</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="view_timeline">view_timeline</span>
+<span class="font-body-md text-body-md">DIJ Timeline</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-body-md text-body-md">DIJ Schedule</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-body-md text-body-md">DIJ Report</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+<span class="font-body-md text-body-md">DIJ New Hire</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-body-md text-body-md">Support</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar (Shared Component) -->
+<header class="fixed top-0 right-0 z-30 flex items-center justify-between w-[calc(100%-16rem)] ml-64 px-margin-desktop h-touch-target-min bg-surface-bright dark:bg-surface-container-lowest border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="factory">factory</span>
+<h2 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">Area DIJ</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right hidden sm:block">
+<p class="text-body-md font-bold text-primary">Admin (Shift 1)</p>
+<p class="text-label-caps text-on-surface-variant">19-05-2026</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="date_range">date_range</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-20 p-8 min-h-screen">
+<!-- Dashboard Header / Legend -->
+<div class="mb-8 flex flex-wrap items-center justify-between gap-4">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Andon Board - 20 Machines</h3>
+<p class="text-body-md text-on-surface-variant">Real-time status tracking for DIJ Production Line</p>
+</div>
+<div class="flex flex-wrap gap-3 bg-white p-3 rounded shadow-sm border border-outline-variant">
+<div class="flex items-center gap-2 px-2 border-r border-outline-variant pr-4 last:border-0">
+<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+<span class="text-label-caps">Running</span>
+</div>
+<div class="flex items-center gap-2 px-2 border-r border-outline-variant pr-4 last:border-0">
+<div class="w-3 h-3 bg-red-500 rounded-full"></div>
+<span class="text-label-caps">Call Mechanic</span>
+</div>
+<div class="flex items-center gap-2 px-2 border-r border-outline-variant pr-4 last:border-0">
+<div class="w-3 h-3 bg-orange-500 rounded-full"></div>
+<span class="text-label-caps">Changeover</span>
+</div>
+<div class="flex items-center gap-2 px-2 border-r border-outline-variant pr-4 last:border-0">
+<div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+<span class="text-label-caps">Out Cycle</span>
+</div>
+<div class="flex items-center gap-2 px-2 border-r border-outline-variant pr-4 last:border-0">
+<div class="w-3 h-3 bg-sky-400 rounded-full"></div>
+<span class="text-label-caps">Planned</span>
+</div>
+<div class="flex items-center gap-2 px-2 last:border-0">
+<div class="w-3 h-3 bg-stone-800 rounded-full"></div>
+<span class="text-label-caps">Offline</span>
+</div>
+</div>
+</div>
+<!-- 4x5 Machine Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+<!-- DIJ001 - Green/Success -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-green-500"></div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-label-caps text-on-surface-variant">Machine ID</span>
+<h4 class="text-headline-sm font-headline-sm text-primary">DIJ001</h4>
+</div>
+<span class="material-symbols-outlined text-green-600" data-icon="check_circle">check_circle</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between">
+<span class="text-body-sm text-on-surface-variant">Status</span>
+<span class="text-data-mono text-green-600 uppercase font-bold">Running</span>
+</div>
+<div class="flex justify-between">
+<span class="text-body-sm text-on-surface-variant">Toy</span>
+<span class="text-data-mono">HW-001</span>
+</div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant flex gap-2">
+<button class="flex-1 bg-surface-container text-primary text-body-sm font-bold py-2 rounded border border-outline-variant transition-colors hover:bg-surface-variant">LOG</button>
+<button class="flex-1 bg-primary text-on-primary text-body-sm font-bold py-2 rounded transition-opacity active:opacity-80">PAUSE</button>
+</div>
+</div>
+<!-- DIJ002 - Red/Danger -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-red-600 animate-pulse"></div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-label-caps text-on-surface-variant">Machine ID</span>
+<h4 class="text-headline-sm font-headline-sm text-primary">DIJ002</h4>
+</div>
+<span class="material-symbols-outlined text-red-600" data-icon="engineering">engineering</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between">
+<span class="text-body-sm text-on-surface-variant">Status</span>
+<span class="text-data-mono text-red-600 font-bold">Call Mechanic</span>
+</div>
+<div class="flex justify-between">
+<span class="text-body-sm text-on-surface-variant">Toy</span>
+<span class="text-data-mono">HW-002</span>
+</div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant flex gap-2">
+<button class="flex-1 bg-red-50 text-red-600 text-body-sm font-bold py-2 rounded border border-red-200 transition-colors hover:bg-red-100">ARRIVED</button>
+<button class="flex-1 bg-primary text-on-primary text-body-sm font-bold py-2 rounded">DETAILS</button>
+</div>
+</div>
+<!-- DIJ003 - Orange/Warning -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-orange-500"></div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-label-caps text-on-surface-variant">Machine ID</span>
+<h4 class="text-headline-sm font-headline-sm text-primary">DIJ003</h4>
+</div>
+<span class="material-symbols-outlined text-orange-500" data-icon="swap_horiz">swap_horiz</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between">
+<span class="text-body-sm text-on-surface-variant">Status</span>
+<span class="text-data-mono text-orange-600 font-bold">Changeover</span>
+</div>
+<div class="flex justify-between">
+<span class="text-body-sm text-on-surface-variant">Toy</span>
+<span class="text-data-mono">HW-003</span>
+</div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant flex gap-2">
+<button class="w-full bg-surface-container text-primary text-body-sm font-bold py-2 rounded border border-outline-variant">PROGRESS (60%)</button>
+</div>
+</div>
+<!-- DIJ004 - Yellow/Warning -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-yellow-400"></div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-label-caps text-on-surface-variant">Machine ID</span>
+<h4 class="text-headline-sm font-headline-sm text-primary">DIJ004</h4>
+</div>
+<span class="material-symbols-outlined text-yellow-600" data-icon="timer_off">timer_off</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between">
+<span class="text-body-sm text-on-surface-variant">Status</span>
+<span class="text-data-mono text-yellow-700 font-bold">Out of Cycle</span>
+</div>
+<div class="flex justify-between">
+<span class="text-body-sm text-on-surface-variant">Cycle</span>
+<span class="text-data-mono text-red-500">6.5s <span class="text-on-surface-variant font-normal">(Std 4s)</span></span>
+</div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant">
+<button class="w-full bg-yellow-50 text-yellow-700 text-body-sm font-bold py-2 rounded border border-yellow-200">REPORT DELAY</button>
+</div>
+</div>
+<!-- DIJ005 - Light Blue/Info -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-sky-400"></div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-label-caps text-on-surface-variant">Machine ID</span>
+<h4 class="text-headline-sm font-headline-sm text-primary">DIJ005</h4>
+</div>
+<span class="material-symbols-outlined text-sky-600" data-icon="info">info</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between">
+<span class="text-body-sm text-on-surface-variant">Status</span>
+<span class="text-data-mono text-sky-600 font-bold">Plan Downtime</span>
+</div>
+<div class="flex justify-between">
+<span class="text-body-sm text-on-surface-variant">Reason</span>
+<span class="text-data-mono">Briefing Shift</span>
+</div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant">
+<button class="w-full bg-sky-50 text-sky-600 text-body-sm font-bold py-2 rounded border border-sky-200">RESUME PLAN</button>
+</div>
+</div>
+<!-- DIJ006 - Black/Secondary -->
+<div class="machine-card relative bg-surface-container-low border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md opacity-80">
+<div class="status-indicator bg-stone-800"></div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-label-caps text-on-surface-variant">Machine ID</span>
+<h4 class="text-headline-sm font-headline-sm text-on-surface-variant">DIJ006</h4>
+</div>
+<span class="material-symbols-outlined text-stone-500" data-icon="power_off">power_off</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between">
+<span class="text-body-sm text-on-surface-variant">Status</span>
+<span class="text-data-mono text-stone-700 font-bold">Machine Off</span>
+</div>
+<div class="flex justify-between">
+<span class="text-body-sm text-on-surface-variant">Info</span>
+<span class="text-data-mono">No Schedule</span>
+</div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant">
+<button class="w-full bg-stone-100 text-stone-600 text-body-sm font-bold py-2 rounded border border-outline-variant">ACTIVATE</button>
+</div>
+</div>
+<!-- Generic Machine Cards to fill up to 20 -->
+<!-- We'll generate a mix of states for visual variety -->
+<!-- DIJ007 (Running) -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-green-500"></div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-label-caps text-on-surface-variant">Machine ID</span>
+<h4 class="text-headline-sm font-headline-sm text-primary">DIJ007</h4>
+</div>
+<span class="material-symbols-outlined text-green-600" data-icon="check_circle">check_circle</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Status</span><span class="text-data-mono text-green-600 font-bold uppercase">Running</span></div>
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Toy</span><span class="text-data-mono">HW-007</span></div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant flex gap-2">
+<button class="flex-1 bg-surface-container text-primary text-body-sm font-bold py-2 rounded border">LOG</button>
+<button class="flex-1 bg-primary text-on-primary text-body-sm font-bold py-2 rounded">PAUSE</button>
+</div>
+</div>
+<!-- DIJ008 (Running) -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-green-500"></div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-label-caps text-on-surface-variant">Machine ID</span>
+<h4 class="text-headline-sm font-headline-sm text-primary">DIJ008</h4>
+</div>
+<span class="material-symbols-outlined text-green-600" data-icon="check_circle">check_circle</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Status</span><span class="text-data-mono text-green-600 font-bold uppercase">Running</span></div>
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Toy</span><span class="text-data-mono">HW-008</span></div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant flex gap-2">
+<button class="flex-1 bg-surface-container text-primary text-body-sm font-bold py-2 rounded border">LOG</button>
+<button class="flex-1 bg-primary text-on-primary text-body-sm font-bold py-2 rounded">PAUSE</button>
+</div>
+</div>
+<!-- DIJ009 (Warning Changeover) -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-orange-500"></div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-label-caps text-on-surface-variant">Machine ID</span>
+<h4 class="text-headline-sm font-headline-sm text-primary">DIJ009</h4>
+</div>
+<span class="material-symbols-outlined text-orange-500" data-icon="swap_horiz">swap_horiz</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Status</span><span class="text-data-mono text-orange-600 font-bold">Changeover</span></div>
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Toy</span><span class="text-data-mono">HW-009</span></div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant">
+<button class="w-full bg-surface-container text-primary text-body-sm font-bold py-2 rounded border border-outline-variant">PROGRESS (20%)</button>
+</div>
+</div>
+<!-- DIJ010 (Running) -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-green-500"></div>
+<div class="flex justify-between items-start">
+<div><span class="text-label-caps text-on-surface-variant">Machine ID</span><h4 class="text-headline-sm font-headline-sm text-primary">DIJ010</h4></div>
+<span class="material-symbols-outlined text-green-600" data-icon="check_circle">check_circle</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Status</span><span class="text-data-mono text-green-600 font-bold uppercase">Running</span></div>
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Toy</span><span class="text-data-mono">HW-010</span></div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant flex gap-2">
+<button class="flex-1 bg-surface-container text-primary text-body-sm font-bold py-2 rounded border">LOG</button>
+<button class="flex-1 bg-primary text-on-primary text-body-sm font-bold py-2 rounded">PAUSE</button>
+</div>
+</div>
+<!-- DIJ011 (Danger Mechanic) -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-red-600 animate-pulse"></div>
+<div class="flex justify-between items-start">
+<div><span class="text-label-caps text-on-surface-variant">Machine ID</span><h4 class="text-headline-sm font-headline-sm text-primary">DIJ011</h4></div>
+<span class="material-symbols-outlined text-red-600" data-icon="engineering">engineering</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Status</span><span class="text-data-mono text-red-600 font-bold">Call Mechanic</span></div>
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Toy</span><span class="text-data-mono">HW-011</span></div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant flex gap-2">
+<button class="flex-1 bg-red-50 text-red-600 text-body-sm font-bold py-2 rounded border border-red-200">ARRIVED</button>
+<button class="flex-1 bg-primary text-on-primary text-body-sm font-bold py-2 rounded">DETAILS</button>
+</div>
+</div>
+<!-- DIJ012 (Running) -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-green-500"></div>
+<div class="flex justify-between items-start">
+<div><span class="text-label-caps text-on-surface-variant">Machine ID</span><h4 class="text-headline-sm font-headline-sm text-primary">DIJ012</h4></div>
+<span class="material-symbols-outlined text-green-600" data-icon="check_circle">check_circle</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Status</span><span class="text-data-mono text-green-600 font-bold uppercase">Running</span></div>
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Toy</span><span class="text-data-mono">HW-012</span></div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant flex gap-2">
+<button class="flex-1 bg-surface-container text-primary text-body-sm font-bold py-2 rounded border">LOG</button>
+<button class="flex-1 bg-primary text-on-primary text-body-sm font-bold py-2 rounded">PAUSE</button>
+</div>
+</div>
+<!-- DIJ013 (Offline) -->
+<div class="machine-card relative bg-surface-container-low border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md opacity-80">
+<div class="status-indicator bg-stone-800"></div>
+<div class="flex justify-between items-start">
+<div><span class="text-label-caps text-on-surface-variant">Machine ID</span><h4 class="text-headline-sm font-headline-sm text-on-surface-variant">DIJ013</h4></div>
+<span class="material-symbols-outlined text-stone-500" data-icon="power_off">power_off</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Status</span><span class="text-data-mono text-stone-700 font-bold">Machine Off</span></div>
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Info</span><span class="text-data-mono">No Schedule</span></div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant"><button class="w-full bg-stone-100 text-stone-600 text-body-sm font-bold py-2 rounded border">ACTIVATE</button></div>
+</div>
+<!-- DIJ014 (Running) -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-green-500"></div>
+<div class="flex justify-between items-start">
+<div><span class="text-label-caps text-on-surface-variant">Machine ID</span><h4 class="text-headline-sm font-headline-sm text-primary">DIJ014</h4></div>
+<span class="material-symbols-outlined text-green-600" data-icon="check_circle">check_circle</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Status</span><span class="text-data-mono text-green-600 font-bold uppercase">Running</span></div>
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Toy</span><span class="text-data-mono">HW-014</span></div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant flex gap-2">
+<button class="flex-1 bg-surface-container text-primary text-body-sm font-bold py-2 rounded border">LOG</button>
+<button class="flex-1 bg-primary text-on-primary text-body-sm font-bold py-2 rounded">PAUSE</button>
+</div>
+</div>
+<!-- DIJ015 (Running) -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-green-500"></div>
+<div class="flex justify-between items-start">
+<div><span class="text-label-caps text-on-surface-variant">Machine ID</span><h4 class="text-headline-sm font-headline-sm text-primary">DIJ015</h4></div>
+<span class="material-symbols-outlined text-green-600" data-icon="check_circle">check_circle</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Status</span><span class="text-data-mono text-green-600 font-bold uppercase">Running</span></div>
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Toy</span><span class="text-data-mono">HW-015</span></div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant flex gap-2">
+<button class="flex-1 bg-surface-container text-primary text-body-sm font-bold py-2 rounded border">LOG</button>
+<button class="flex-1 bg-primary text-on-primary text-body-sm font-bold py-2 rounded">PAUSE</button>
+</div>
+</div>
+<!-- DIJ016 (Out Cycle) -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-yellow-400"></div>
+<div class="flex justify-between items-start">
+<div><span class="text-label-caps text-on-surface-variant">Machine ID</span><h4 class="text-headline-sm font-headline-sm text-primary">DIJ016</h4></div>
+<span class="material-symbols-outlined text-yellow-600" data-icon="timer_off">timer_off</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Status</span><span class="text-data-mono text-yellow-700 font-bold">Out of Cycle</span></div>
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Cycle</span><span class="text-data-mono text-red-500">5.8s <span class="text-on-surface-variant font-normal">(Std 4s)</span></span></div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant"><button class="w-full bg-yellow-50 text-yellow-700 text-body-sm font-bold py-2 rounded border border-yellow-200">REPORT DELAY</button></div>
+</div>
+<!-- DIJ017 (Running) -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-green-500"></div>
+<div class="flex justify-between items-start">
+<div><span class="text-label-caps text-on-surface-variant">Machine ID</span><h4 class="text-headline-sm font-headline-sm text-primary">DIJ017</h4></div>
+<span class="material-symbols-outlined text-green-600" data-icon="check_circle">check_circle</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Status</span><span class="text-data-mono text-green-600 font-bold uppercase">Running</span></div>
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Toy</span><span class="text-data-mono">HW-017</span></div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant flex gap-2">
+<button class="flex-1 bg-surface-container text-primary text-body-sm font-bold py-2 rounded border">LOG</button>
+<button class="flex-1 bg-primary text-on-primary text-body-sm font-bold py-2 rounded">PAUSE</button>
+</div>
+</div>
+<!-- DIJ018 (Running) -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-green-500"></div>
+<div class="flex justify-between items-start">
+<div><span class="text-label-caps text-on-surface-variant">Machine ID</span><h4 class="text-headline-sm font-headline-sm text-primary">DIJ018</h4></div>
+<span class="material-symbols-outlined text-green-600" data-icon="check_circle">check_circle</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Status</span><span class="text-data-mono text-green-600 font-bold uppercase">Running</span></div>
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Toy</span><span class="text-data-mono">HW-018</span></div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant flex gap-2">
+<button class="flex-1 bg-surface-container text-primary text-body-sm font-bold py-2 rounded border">LOG</button>
+<button class="flex-1 bg-primary text-on-primary text-body-sm font-bold py-2 rounded">PAUSE</button>
+</div>
+</div>
+<!-- DIJ019 (Plan Downtime) -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-sky-400"></div>
+<div class="flex justify-between items-start">
+<div><span class="text-label-caps text-on-surface-variant">Machine ID</span><h4 class="text-headline-sm font-headline-sm text-primary">DIJ019</h4></div>
+<span class="material-symbols-outlined text-sky-600" data-icon="info">info</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Status</span><span class="text-data-mono text-sky-600 font-bold">Plan Downtime</span></div>
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Reason</span><span class="text-data-mono">Briefing Shift</span></div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant"><button class="w-full bg-sky-50 text-sky-600 text-body-sm font-bold py-2 rounded border border-sky-200">RESUME PLAN</button></div>
+</div>
+<!-- DIJ020 (Running) -->
+<div class="machine-card relative bg-white border border-outline-variant p-4 flex flex-col gap-3 cursor-pointer hover:shadow-md">
+<div class="status-indicator bg-green-500"></div>
+<div class="flex justify-between items-start">
+<div><span class="text-label-caps text-on-surface-variant">Machine ID</span><h4 class="text-headline-sm font-headline-sm text-primary">DIJ020</h4></div>
+<span class="material-symbols-outlined text-green-600" data-icon="check_circle">check_circle</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Status</span><span class="text-data-mono text-green-600 font-bold uppercase">Running</span></div>
+<div class="flex justify-between"><span class="text-body-sm text-on-surface-variant">Toy</span><span class="text-data-mono">HW-020</span></div>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant flex gap-2">
+<button class="flex-1 bg-surface-container text-primary text-body-sm font-bold py-2 rounded border">LOG</button>
+<button class="flex-1 bg-primary text-on-primary text-body-sm font-bold py-2 rounded">PAUSE</button>
+</div>
+</div>
+</div>
+<!-- Footer / Statistics Bar -->
+<div class="mt-10 grid grid-cols-1 md:grid-cols-4 gap-4 bg-white p-6 border border-outline-variant">
+<div class="flex flex-col gap-1">
+<span class="text-label-caps text-on-surface-variant">Overall OEE</span>
+<div class="flex items-baseline gap-2">
+<span class="text-display-lg font-display-lg text-primary">84.2%</span>
+<span class="text-body-sm text-green-600 font-bold">↑ 2.1%</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-label-caps text-on-surface-variant">Active Units</span>
+<div class="flex items-baseline gap-2">
+<span class="text-display-lg font-display-lg text-primary">12/20</span>
+<span class="text-body-sm text-on-surface-variant">Machines Running</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-label-caps text-on-surface-variant">Down Time</span>
+<div class="flex items-baseline gap-2">
+<span class="text-display-lg font-display-lg text-red-600">45m</span>
+<span class="text-body-sm text-on-surface-variant">Today Total</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-label-caps text-on-surface-variant">Target (Shift 1)</span>
+<div class="flex items-baseline gap-2">
+<span class="text-display-lg font-display-lg text-primary">4,200</span>
+<span class="text-body-sm text-orange-600 font-bold">78% Goal</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Micro-interactions Script -->
+<script>
+        // Simple click listener for machine cards
+        document.querySelectorAll('.machine-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const machineId = this.querySelector('h4').textContent;
+                console.log(`Machine ${machineId} selected for detailed analysis.`);
+                // Pulse effect on click
+                this.classList.add('ring-2', 'ring-primary');
+                setTimeout(() => {
+                    this.classList.remove('ring-2', 'ring-primary');
+                }, 400);
+            });
+        });
+
+        // Real-time clock for top bar (optional enhancement)
+        function updateTime() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            const dateStr = now.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '-');
+            const target = document.querySelector('.text-label-caps.text-on-surface-variant');
+            if(target) target.textContent = `${dateStr} | ${timeStr}`;
+        }
+        setInterval(updateTime, 1000);
+    </script>
+</body></html>
