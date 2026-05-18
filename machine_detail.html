@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Machine Detail Control Panel - DIJ001</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#c6c6cd",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed": "#fcdeb5",
+                      "inverse-on-surface": "#f3f0f2",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#b7c8e1",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed-dim": "#bec6e0",
+                      "surface": "#fcf8fa",
+                      "secondary": "#505f76",
+                      "surface-bright": "#fcf8fa",
+                      "on-tertiary-container": "#98805d",
+                      "on-secondary-fixed-variant": "#38485d",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#271901",
+                      "on-secondary-fixed": "#0b1c30",
+                      "surface-container-high": "#eae7e9",
+                      "surface-container-low": "#f6f3f5",
+                      "on-surface": "#1b1b1d",
+                      "surface-container-highest": "#e4e2e4",
+                      "on-primary-container": "#7c839b",
+                      "primary-container": "#131b2e",
+                      "surface-dim": "#dcd9db",
+                      "tertiary": "#000000",
+                      "inverse-surface": "#303032",
+                      "secondary-container": "#d0e1fb",
+                      "inverse-primary": "#bec6e0",
+                      "on-background": "#1b1b1d",
+                      "primary": "#000000",
+                      "on-primary": "#ffffff",
+                      "surface-variant": "#e4e2e4",
+                      "surface-tint": "#565e74",
+                      "surface-container": "#f0edef",
+                      "on-secondary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed": "#131b2e",
+                      "secondary-fixed": "#d3e4fe",
+                      "on-tertiary-fixed-variant": "#574425",
+                      "outline": "#76777d",
+                      "on-secondary-container": "#54647a",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-container": "#271901",
+                      "primary-fixed": "#dae2fd",
+                      "background": "#fcf8fa",
+                      "tertiary-fixed-dim": "#dec29a",
+                      "on-surface-variant": "#45464d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "1rem",
+                      "gutter": "1rem",
+                      "container-max": "1440px",
+                      "margin-desktop": "2rem",
+                      "touch-target-min": "44px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "headline-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "data-mono": ["Inter"]
+              },
+              "fontSize": {
+                      "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "body-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                      "headline-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "display-lg": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "data-mono": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .status-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- Top Navigation Shell (Suppressing SideNav as it's a Sub-Page focus) -->
+<header class="fixed top-0 left-0 right-0 z-30 bg-surface-bright border-b border-outline-variant flex items-center justify-between px-margin-desktop h-touch-target-min">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 text-primary hover:bg-surface-container-low transition-colors px-2 py-1" onclick="window.history.back()">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+<span class="font-label-caps text-label-caps">KEMBALI KE LAYOUT</span>
+</button>
+<div class="h-6 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="factory">factory</span>
+<h1 class="font-headline-md text-headline-md uppercase tracking-tight">DIJ001</h1>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-green-100 text-green-800 rounded-full">
+<span class="w-2 h-2 bg-green-600 rounded-full status-pulse"></span>
+<span class="font-label-caps text-label-caps">RUNNING</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right hidden md:block">
+<p class="font-label-caps text-label-caps text-on-surface-variant">Admin (Shift 1)</p>
+<p class="font-data-mono text-data-mono text-primary">19-05-2026</p>
+</div>
+<div class="flex gap-2">
+<span class="material-symbols-outlined p-2 hover:bg-surface-container-high cursor-pointer rounded-full" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined p-2 hover:bg-surface-container-high cursor-pointer rounded-full" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 px-margin-desktop pb-10 max-w-container-max mx-auto">
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Left Section: Ongoing Work Order -->
+<section class="col-span-12 lg:col-span-8 flex flex-col gap-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant p-6 flex flex-col gap-6">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-label-caps text-label-caps text-outline mb-1 uppercase">Ongoing Work Order</h2>
+<p class="font-display-lg text-display-lg text-primary">WO-20260519-01</p>
+</div>
+<div class="text-right">
+<span class="font-label-caps text-label-caps text-outline block mb-1">PANEL CODE</span>
+<span class="font-headline-sm text-headline-sm px-3 py-1 bg-surface-container text-primary border border-outline-variant">JIG-DIJ-A</span>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 py-6 border-y border-outline-variant">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">TOY NO</p>
+<p class="font-headline-sm text-headline-sm">HW-Boneshaker V2</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">PART NO</p>
+<p class="font-headline-sm text-headline-sm">P-98271</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">TARGET</p>
+<p class="font-display-lg text-display-lg font-bold">5,000</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">REALIZED</p>
+<p class="font-display-lg text-display-lg text-secondary-container bg-primary px-2 py-1 inline-block">3,200</p>
+</div>
+</div>
+<!-- Progress Visualization -->
+<div>
+<div class="flex justify-between items-end mb-2">
+<p class="font-label-caps text-label-caps">COMPLETION PROGRESS</p>
+<p class="font-data-mono text-data-mono">64%</p>
+</div>
+<div class="w-full bg-surface-container h-4 border border-outline-variant overflow-hidden">
+<div class="bg-secondary h-full transition-all duration-1000" style="width: 64%"></div>
+</div>
+</div>
+<button class="w-full h-touch-target-min bg-primary text-on-primary font-headline-sm uppercase flex items-center justify-center gap-3 hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined" data-icon="task_alt">task_alt</span>
+                        FINISH WORK ORDER
+                    </button>
+</div>
+<!-- Industrial Mini Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-low p-4 border-l-4 border-primary">
+<p class="font-label-caps text-label-caps text-on-surface-variant">OEE</p>
+<p class="font-headline-md text-headline-md">88.5%</p>
+</div>
+<div class="bg-surface-container-low p-4 border-l-4 border-secondary-container">
+<p class="font-label-caps text-label-caps text-on-surface-variant">CYCLE TIME</p>
+<p class="font-headline-md text-headline-md">12.4s <span class="text-body-sm font-body-sm text-outline">Avg</span></p>
+</div>
+<div class="bg-surface-container-low p-4 border-l-4 border-error">
+<p class="font-label-caps text-label-caps text-on-surface-variant">SCRAP RATE</p>
+<p class="font-headline-md text-headline-md">1.2%</p>
+</div>
+</div>
+</section>
+<!-- Right Section: Action Cluster -->
+<section class="col-span-12 lg:col-span-4">
+<div class="flex flex-col gap-gutter sticky top-24">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant px-2">MACHINE CONTROLS</h3>
+<button class="group flex flex-col items-center justify-center gap-2 h-32 bg-yellow-400 text-black border-2 border-yellow-500 hover:bg-yellow-500 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[40px]" data-icon="pause_circle">pause_circle</span>
+<span class="font-headline-sm text-headline-sm font-bold">DOWNTIME</span>
+</button>
+<button class="group flex flex-col items-center justify-center gap-2 h-32 bg-error text-on-error border-2 border-on-error-container hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[40px]" data-icon="cancel">cancel</span>
+<span class="font-headline-sm text-headline-sm font-bold">REJECT</span>
+</button>
+<button class="group flex flex-col items-center justify-center gap-2 h-32 bg-secondary-container text-on-secondary-container border-2 border-on-secondary-fixed-variant hover:bg-secondary-fixed transition-all active:scale-95">
+<span class="material-symbols-outlined text-[40px]" data-icon="assignment">assignment</span>
+<span class="font-headline-sm text-headline-sm font-bold">WORK ORDER</span>
+</button>
+<div class="mt-4 p-4 bg-surface-container-high border border-outline-variant">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="history">history</span>
+                            LAST STATUS CHANGE
+                        </p>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md">Running Since</span>
+<span class="font-data-mono text-data-mono">07:32:15 AM</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Section: Upcoming Queue -->
+<section class="col-span-12 mt-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant overflow-hidden">
+<div class="p-4 bg-surface-container-low border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-label-caps text-label-caps text-primary">UPCOMING QUEUE (WORK ORDERS)</h3>
+<span class="bg-primary text-on-primary px-2 py-0.5 font-label-caps text-label-caps">3 PENDING</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container border-b border-outline-variant">
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant w-16">SEQ</th>
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant">WO ID</th>
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant">TOY NO</th>
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant text-right">TARGET</th>
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant">PART NO</th>
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant">PANEL</th>
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant text-center">ACTION</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-4 py-4 font-data-mono text-data-mono">02</td>
+<td class="px-4 py-4 font-body-md font-bold">WO-20260519-05</td>
+<td class="px-4 py-4 font-body-md">HW-Twin Mill Gen 3</td>
+<td class="px-4 py-4 font-data-mono text-right">10,000</td>
+<td class="px-4 py-4 font-body-md">P-77210</td>
+<td class="px-4 py-4"><span class="bg-surface-container px-2 py-1 font-body-sm">JIG-DIJ-B</span></td>
+<td class="px-4 py-4 text-center">
+<button class="text-primary hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="swap_vert">swap_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
+<td class="px-4 py-4 font-data-mono text-data-mono">03</td>
+<td class="px-4 py-4 font-body-md font-bold">WO-20260519-09</td>
+<td class="px-4 py-4 font-body-md">HW-Deora II Edition</td>
+<td class="px-4 py-4 font-data-mono text-right">2,500</td>
+<td class="px-4 py-4 font-body-md">P-11032</td>
+<td class="px-4 py-4"><span class="bg-surface-container px-2 py-1 font-body-sm">JIG-DIJ-A</span></td>
+<td class="px-4 py-4 text-center">
+<button class="text-primary hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="swap_vert">swap_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-4 py-4 font-data-mono text-data-mono">04</td>
+<td class="px-4 py-4 font-body-md font-bold">WO-20260520-01</td>
+<td class="px-4 py-4 font-body-md">HW-Rodger Dodger</td>
+<td class="px-4 py-4 font-data-mono text-right">15,000</td>
+<td class="px-4 py-4 font-body-md">P-55091</td>
+<td class="px-4 py-4"><span class="bg-surface-container px-2 py-1 font-body-sm">JIG-DIJ-C</span></td>
+<td class="px-4 py-4 text-center">
+<button class="text-primary hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="swap_vert">swap_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Contextual Toast Notification (Mock Interaction) -->
+<div class="fixed bottom-margin-desktop right-margin-desktop bg-primary-container text-on-primary-fixed px-6 py-4 border-l-4 border-secondary-fixed shadow-lg translate-y-20 opacity-0 transition-all duration-300 pointer-events-none" id="toast">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+<p class="font-body-md" id="toast-message">Machine data updated successfully.</p>
+</div>
+</div>
+<script>
+        // Micro-interactions for buttons
+        const buttons = document.querySelectorAll('button');
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toast-message');
+
+        function showToast(message) {
+            toastMsg.innerText = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+                toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 3000);
+        }
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const action = btn.innerText.trim();
+                if (action) showToast(`Action Triggered: ${action}`);
+            });
+        });
+
+        // Real-time clock update for the header
+        function updateTime() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            const dateStr = now.toLocaleDateString('en-GB').replace(/\//g, '-');
+            const dateEl = document.querySelector('.font-data-mono');
+            if (dateEl) {
+                // Keep the fixed date from prompt but we could update time if we wanted
+                // dateEl.innerText = `${dateStr} | ${timeStr}`;
+            }
+        }
+        setInterval(updateTime, 1000);
+    </script>
+</body></html>
