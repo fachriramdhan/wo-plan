@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DIJ New Hire Dashboard - PT Mattel West Plant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c6c6cd",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#fcdeb5",
+                        "inverse-on-surface": "#f3f0f2",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface": "#fcf8fa",
+                        "secondary": "#505f76",
+                        "surface-bright": "#fcf8fa",
+                        "on-tertiary-container": "#98805d",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#271901",
+                        "on-secondary-fixed": "#0b1c30",
+                        "surface-container-high": "#eae7e9",
+                        "surface-container-low": "#f6f3f5",
+                        "on-surface": "#1b1b1d",
+                        "surface-container-highest": "#e4e2e4",
+                        "on-primary-container": "#7c839b",
+                        "primary-container": "#131b2e",
+                        "surface-dim": "#dcd9db",
+                        "tertiary": "#000000",
+                        "inverse-surface": "#303032",
+                        "secondary-container": "#d0e1fb",
+                        "inverse-primary": "#bec6e0",
+                        "on-background": "#1b1b1d",
+                        "primary": "#000000",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e4e2e4",
+                        "surface-tint": "#565e74",
+                        "surface-container": "#f0edef",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#131b2e",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "outline": "#76777d",
+                        "on-secondary-container": "#54647a",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#271901",
+                        "primary-fixed": "#dae2fd",
+                        "background": "#fcf8fa",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "on-surface-variant": "#45464d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "1rem",
+                        "gutter": "1rem",
+                        "container-max": "1440px",
+                        "margin-desktop": "2rem",
+                        "touch-target-min": "44px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "data-mono": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "headline-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-lg": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "data-mono": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcf8fa;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c6c6cd;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 border-r border-outline-variant bg-surface flex flex-col py-8">
+<div class="px-6 mb-8">
+<h1 class="text-headline-sm font-headline-sm font-bold text-primary">PT Mattel</h1>
+<p class="text-label-caps font-label-caps text-on-surface-variant">West Plant</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-body-md font-body-md">DIJ Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="text-body-md font-body-md">DIJ Layout</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="view_timeline">view_timeline</span>
+<span class="text-body-md font-body-md">DIJ Timeline</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="text-body-md font-body-md">DIJ Schedule</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-body-md font-body-md">DIJ Report</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 border-l-4 border-primary bg-secondary-container text-primary font-bold opacity-90 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+<span class="text-body-md font-body-md">DIJ New Hire</span>
+</a>
+</nav>
+<div class="mt-auto px-2 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-body-md font-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-body-md font-body-md">Support</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 right-0 z-30 flex items-center justify-between w-[calc(100%-16rem)] ml-64 px-margin-desktop h-touch-target-min bg-surface-bright border-b border-outline-variant">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="factory">factory</span>
+<h2 class="text-headline-md font-headline-md font-bold text-primary">Area DIJ</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined hover:text-primary cursor-pointer transition-transform active:scale-95" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined hover:text-primary cursor-pointer transition-transform active:scale-95" data-icon="date_range">date_range</span>
+<span class="material-symbols-outlined hover:text-primary cursor-pointer transition-transform active:scale-95" data-icon="account_circle">account_circle</span>
+</div>
+<div class="text-right">
+<p class="text-body-lg font-body-lg font-bold text-primary">Admin (Shift 1)</p>
+<p class="text-label-caps font-label-caps text-on-surface-variant">19-05-2026</p>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-margin-desktop min-h-screen pb-12">
+<div class="grid grid-cols-12 gap-8 h-full">
+<!-- Left Panel: Registration (Level 1 Cards) -->
+<section class="col-span-12 lg:col-span-5 xl:col-span-4">
+<div class="bg-white border border-outline-variant p-8 h-fit">
+<div class="flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-primary" data-icon="app_registration">app_registration</span>
+<h3 class="text-headline-sm font-headline-sm">Registration</h3>
+</div>
+<form class="space-y-6" id="newHireForm">
+<div class="space-y-2">
+<label class="text-label-caps font-label-caps text-on-surface-variant">OPERATOR ID / SCAN</label>
+<div class="relative">
+<input class="w-full h-touch-target-min bg-surface-container border border-outline-variant focus:border-primary focus:ring-0 text-body-lg font-body-lg px-4" placeholder="Mattel-NH-001" type="text" value="Mattel-NH-001"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant" data-icon="qr_code_scanner">qr_code_scanner</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-label-caps font-label-caps text-on-surface-variant">NAMA LENGKAP</label>
+<input class="w-full h-touch-target-min bg-surface-container border border-outline-variant focus:border-primary focus:ring-0 text-body-lg font-body-lg px-4" placeholder="Masukkan nama lengkap..." type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-label-caps font-label-caps text-on-surface-variant">TANGGAL MULAI KERJA</label>
+<div class="relative">
+<input class="w-full h-touch-target-min bg-surface-container border border-outline-variant focus:border-primary focus:ring-0 text-body-lg font-body-lg px-4" type="date"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-label-caps font-label-caps text-on-surface-variant">SHIFT ASSIGNMENT</label>
+<select class="w-full h-touch-target-min bg-surface-container border border-outline-variant focus:border-primary focus:ring-0 text-body-lg font-body-lg px-4 appearance-none">
+<option>Shift 1 (06:00 - 14:00)</option>
+<option>Shift 2 (14:00 - 22:00)</option>
+<option>Shift 3 (22:00 - 06:00)</option>
+</select>
+</div>
+<button class="w-full h-touch-target-min bg-primary text-on-primary font-bold text-body-lg hover:opacity-90 active:scale-95 transition-all mt-4" type="submit">
+                            SIMPAN DATA
+                        </button>
+</form>
+<div class="mt-8 pt-8 border-t border-outline-variant">
+<div class="flex items-center gap-4 p-4 bg-surface-container-low border-l-4 border-secondary">
+<span class="material-symbols-outlined text-secondary" data-icon="info" style="font-variation-settings: 'FILL' 1;">info</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                                Pastikan ID Operator sudah sesuai dengan standar sistem penomoran Mattel West Plant sebelum melakukan penyimpanan.
+                            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Panel: Active List (Data Tables) -->
+<section class="col-span-12 lg:col-span-7 xl:col-span-8 space-y-6">
+<div class="bg-white border border-outline-variant flex flex-col h-full">
+<div class="p-6 border-b border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="list_alt">list_alt</span>
+<h3 class="text-headline-sm font-headline-sm">Active List (New Hires)</h3>
+</div>
+<button class="flex items-center gap-2 h-touch-target-min px-6 border-2 border-primary text-primary font-bold text-body-md hover:bg-primary hover:text-on-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="sync">sync</span>
+                            SINKRONISASI KE HRMS PUSAT
+                        </button>
+</div>
+<div class="flex-1 overflow-auto custom-scrollbar">
+<table class="w-full border-collapse">
+<thead class="sticky top-0 bg-surface-container-lowest z-10">
+<tr class="border-b border-outline-variant">
+<th class="px-6 py-4 text-left text-label-caps font-label-caps text-on-surface-variant">ID SEMENTARA</th>
+<th class="px-6 py-4 text-left text-label-caps font-label-caps text-on-surface-variant">NAMA LENGKAP</th>
+<th class="px-6 py-4 text-left text-label-caps font-label-caps text-on-surface-variant">SHIFT</th>
+<th class="px-6 py-4 text-left text-label-caps font-label-caps text-on-surface-variant">STATUS</th>
+<th class="px-6 py-4 text-right text-label-caps font-label-caps text-on-surface-variant">AKSI</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Zebra striping via Slate-50 logic -->
+<tr class="hover:bg-surface-container-low transition-colors h-[48px]">
+<td class="px-6 py-3 font-data-mono text-data-mono">MTL-NH-001</td>
+<td class="px-6 py-3 text-body-md">Andi Prasetyo</td>
+<td class="px-6 py-3 text-body-md">Shift 1</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-secondary-container text-on-secondary-container text-label-caps rounded-sm">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> READY
+                                        </span>
+</td>
+<td class="px-6 py-3 text-right">
+<button class="material-symbols-outlined text-outline hover:text-primary" data-icon="edit">edit</button>
+<button class="material-symbols-outlined text-outline hover:text-error ml-4" data-icon="delete">delete</button>
+</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors h-[48px]">
+<td class="px-6 py-3 font-data-mono text-data-mono">MTL-NH-002</td>
+<td class="px-6 py-3 text-body-md">Siti Aminah</td>
+<td class="px-6 py-3 text-body-md">Shift 1</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-secondary-container text-on-secondary-container text-label-caps rounded-sm">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> READY
+                                        </span>
+</td>
+<td class="px-6 py-3 text-right">
+<button class="material-symbols-outlined text-outline hover:text-primary" data-icon="edit">edit</button>
+<button class="material-symbols-outlined text-outline hover:text-error ml-4" data-icon="delete">delete</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors h-[48px]">
+<td class="px-6 py-3 font-data-mono text-data-mono">MTL-NH-003</td>
+<td class="px-6 py-3 text-body-md">Budi Santoso</td>
+<td class="px-6 py-3 text-body-md">Shift 2</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-error-container text-on-error-container text-label-caps rounded-sm">
+<span class="w-1.5 h-1.5 bg-error rounded-full"></span> PENDING
+                                        </span>
+</td>
+<td class="px-6 py-3 text-right">
+<button class="material-symbols-outlined text-outline hover:text-primary" data-icon="edit">edit</button>
+<button class="material-symbols-outlined text-outline hover:text-error ml-4" data-icon="delete">delete</button>
+</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors h-[48px]">
+<td class="px-6 py-3 font-data-mono text-data-mono">MTL-NH-004</td>
+<td class="px-6 py-3 text-body-md">Dewi Lestari</td>
+<td class="px-6 py-3 text-body-md">Shift 2</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-secondary-container text-on-secondary-container text-label-caps rounded-sm">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> READY
+                                        </span>
+</td>
+<td class="px-6 py-3 text-right">
+<button class="material-symbols-outlined text-outline hover:text-primary" data-icon="edit">edit</button>
+<button class="material-symbols-outlined text-outline hover:text-error ml-4" data-icon="delete">delete</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors h-[48px]">
+<td class="px-6 py-3 font-data-mono text-data-mono">MTL-NH-005</td>
+<td class="px-6 py-3 text-body-md">Eko Wahyudi</td>
+<td class="px-6 py-3 text-body-md">Shift 3</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-secondary-container text-on-secondary-container text-label-caps rounded-sm">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> READY
+                                        </span>
+</td>
+<td class="px-6 py-3 text-right">
+<button class="material-symbols-outlined text-outline hover:text-primary" data-icon="edit">edit</button>
+<button class="material-symbols-outlined text-outline hover:text-error ml-4" data-icon="delete">delete</button>
+</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors h-[48px]">
+<td class="px-6 py-3 font-data-mono text-data-mono">MTL-NH-006</td>
+<td class="px-6 py-3 text-body-md">Rina Permata</td>
+<td class="px-6 py-3 text-body-md">Shift 1</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-secondary-container text-on-secondary-container text-label-caps rounded-sm">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> READY
+                                        </span>
+</td>
+<td class="px-6 py-3 text-right">
+<button class="material-symbols-outlined text-outline hover:text-primary" data-icon="edit">edit</button>
+<button class="material-symbols-outlined text-outline hover:text-error ml-4" data-icon="delete">delete</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-outline-variant flex items-center justify-between bg-surface-container-lowest">
+<span class="text-body-sm font-body-sm text-on-surface-variant">Total New Hires: 6</span>
+<div class="flex items-center gap-4">
+<button class="text-label-caps font-label-caps hover:text-primary">PREVIOUS</button>
+<span class="text-label-caps font-label-caps px-3 py-1 bg-primary text-on-primary">1</span>
+<button class="text-label-caps font-label-caps hover:text-primary">NEXT</button>
+</div>
+</div>
+</div>
+<!-- Industrial Contextual Imagery -->
+<div class="grid grid-cols-2 gap-6 h-64">
+<div class="relative overflow-hidden group">
+<img class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" data-alt="A clean, futuristic manufacturing assembly line in a high-tech facility. The lighting is bright and industrial, reflecting off polished metal surfaces and pristine white machinery. The atmosphere is clinical and efficient, emphasizing the operational excellence of a modern toy factory. The color palette is dominated by neutral whites and grays with subtle accents of blue and red." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-Omucm7Rx5UN9I_UPoG-hG2tkoCVYxaqRvr4-lHX6npmmpGEYKVx5n3AY7eedBMMGbRtzACGtuDjzCjY9T5IHmR4Of38tl8n8f4-wkT3YJmYIGGl8euzHPOSWxVi_FoJX5yYkdp7mc-KPYQpnPtsm7omFaQvUuNTD0QTnjQsKGp9Ro1cvnxlYVVOHmpquCyMDGrnKBak7tzes1zY68PGh3jAXv-FPnKpuCIhXU1_Hgd8u0ATynO5yS2mZAj-m-X8Z8nhfvWGF8RA"/>
+<div class="absolute inset-0 bg-primary/20 flex items-end p-6">
+<p class="text-on-primary font-bold text-headline-sm">Operational Excellence</p>
+</div>
+</div>
+<div class="relative overflow-hidden group">
+<img class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" data-alt="A professional team of manufacturing engineers and plant operators in clean, industrial uniforms collaborating over a digital terminal. The scene is illuminated with cool, bright factory lighting, highlighting a sense of transparency and reliable teamwork. The visual style is modern corporate, focusing on human-centric technology integration in a productive industrial workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGajRZJ66OYNci3mKnJNIpnQgqx8u6fPxz46QtLYtxnKSlT-mRgCXWnJaKb1GqiecfCvOm_3klagcsv1L7PdWpaCl9zqSJVac36bHcX-1I0z7CJcE_QmR-4u75LPSY162ul58c3OdWyOO1HN-DTmYtSZ9PUBpL_6w5vrYXoxv76QFvgBskhMX9LLtJ72LeR9UY3hpdNR2kFQ6BdCdwLod8oowrKrLsgQAUfd96LO07ZzTVDncINAJtN8RwedeM-DR6cd9dVMXi0wM"/>
+<div class="absolute inset-0 bg-primary/20 flex items-end p-6">
+<p class="text-on-primary font-bold text-headline-sm">Workforce Growth</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<script>
+        // Micro-interactions and effects
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('newHireForm');
+            
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = e.target.querySelector('button');
+                const originalText = btn.innerText;
+                
+                // Visual feedback for "SIMPAN DATA"
+                btn.innerText = 'SAVING...';
+                btn.style.opacity = '0.7';
+                
+                setTimeout(() => {
+                    btn.innerText = 'SUCCESS ✓';
+                    btn.classList.replace('bg-primary', 'bg-secondary');
+                    
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.classList.replace('bg-secondary', 'bg-primary');
+                        btn.style.opacity = '1';
+                        form.reset();
+                    }, 1500);
+                }, 800);
+            });
+
+            // Active Tab Logic from JSON
+            // Currently on "DIJ New Hire" based on the page title and intent.
+            // Highlight logic is already embedded in the HTML class structure above.
+        });
+    </script>
+</body></html>
